@@ -55,7 +55,7 @@ function playRound(playerSelection, computerSelection) {
  * This Function plays multiple rounds of Rock-paper-Scissors
  * and shows the final score at the end
  */
-function game() {
+function playGame() {
   //initialize score and amount of rounds
   const NUM_ROUNDS = 5;
   let playerScore = 0;
@@ -82,4 +82,4 @@ function game() {
 
 //call main function
 
-game();
+playGame();
