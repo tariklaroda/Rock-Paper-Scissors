@@ -31,16 +31,35 @@ function playRound(playerSelection, computerSelection) {
     (pSelection === "scissors" && cSelection === "paper")
   ) {
     console.log("You WIN! ", pSelection, " beats ", cSelection);
+    //if player wins return 0
+    return 0;
   } else {
     console.log("You Lose! ", cSelection, " beats ", pSelection);
+    //if player loses return 1
+    return 1;
   }
 }
 
-function game()
+function game() {
+  //initialize score
+  let playerScore = 0;
+  let computerScore = 0;
+
+  //play round
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt();
+    const computerChoice = getComputerChoice();
+    let roundRes = playRound(playerSelection, computerChoice);
+    if (roundRes == 0) {
+      playerScore++;
+    } else if (roundRes == 1) {
+      computerScore++;
+    }
+  }
+
+  console.log("Player: ", playerScore, "\tComputer: ", computerScore);
+}
 
 //call function
 
-const playerSelection = "rock";
-const computerChoice = getComputerChoice();
-
-playRound(playerSelection, computerChoice);
+game();
