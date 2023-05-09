@@ -1,3 +1,7 @@
+/**
+ * This function generates a random choice: rock, paper or scissors
+ * @returns a string representing the choice of the computer
+ */
 function getComputerChoice() {
   //make array with Rock Paper Scissors
   const computerChoice = ["rock", "paper", "scissors"];
@@ -14,6 +18,13 @@ function getComputerChoice() {
   return choice;
 }
 
+/**
+ * This function plays a single round of Rock-Paper-Scissors
+ * and
+ * @param {} playerSelection is the choice made by the player
+ * @param {*} computerSelection is the choice made by the computer
+ * @returns 0 or 1, indicating if the player won or lost
+ */
 function playRound(playerSelection, computerSelection) {
   //get selection from player
 
@@ -40,15 +51,23 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+/**
+ * This Function plays multiple rounds of Rock-paper-Scissors
+ * and shows the final score at the end
+ */
 function game() {
-  //initialize score
+  //initialize score and amount of rounds
+  const NUM_ROUNDS = 5;
   let playerScore = 0;
   let computerScore = 0;
 
   //play round
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < NUM_ROUNDS; i++) {
+    //get selection
     const playerSelection = prompt();
     const computerChoice = getComputerChoice();
+
+    // play round
     let roundRes = playRound(playerSelection, computerChoice);
     if (roundRes == 0) {
       playerScore++;
@@ -57,9 +76,10 @@ function game() {
     }
   }
 
+  //display results
   console.log("Player: ", playerScore, "\tComputer: ", computerScore);
 }
 
-//call function
+//call main function
 
 game();
